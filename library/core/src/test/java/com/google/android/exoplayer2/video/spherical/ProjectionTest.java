@@ -52,10 +52,10 @@ public class ProjectionTest {
     assertThat(subMesh.getVertexCount()).isGreaterThan(LATITUDES * LONGITUDES);
 
     float[] data = subMesh.vertices;
-    for (int i = 0; i < data.length; ) {
-      float x = data[i++];
-      float y = data[i++];
-      float z = data[i++];
+    for (int i = 0; i + 2 < data.length; i += 3) {
+      float x = data[i];
+      float y = data[i + 1];
+      float z = data[i + 2];
       assertEquals(RADIUS, Math.sqrt(x * x + y * y + z * z), EPSILON);
     }
   }
