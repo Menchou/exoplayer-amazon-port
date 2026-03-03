@@ -174,7 +174,7 @@ public class IntentUtil {
     String[] keyRequestPropertiesArray =
         intent.getStringArrayExtra(DRM_KEY_REQUEST_PROPERTIES_EXTRA + extrasKeySuffix);
     if (keyRequestPropertiesArray != null) {
-      for (int i = 0; i < keyRequestPropertiesArray.length; i += 2) {
+      for (int i = 0; i + 1 < keyRequestPropertiesArray.length; i += 2) {
         headers.put(keyRequestPropertiesArray[i], keyRequestPropertiesArray[i + 1]);
       }
     }
