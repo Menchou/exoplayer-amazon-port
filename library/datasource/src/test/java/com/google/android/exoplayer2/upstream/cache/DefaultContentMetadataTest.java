@@ -157,7 +157,10 @@ public class DefaultContentMetadataTest {
   }
 
   private DefaultContentMetadata createContentMetadata(Object... pairs) {
-    assertThat(pairs.length % 2).isEqualTo(0);
+    if ((pairs.length % 2) != 0) {
+      throw new IllegalArgumentException(
+          "Pairs must contain an even number of elements (key/value pairs).");
+    }
     ContentMetadataMutations mutations = new ContentMetadataMutations();
     for (int i = 0; i < pairs.length; i += 2) {
       String name = (String) pairs[i];
